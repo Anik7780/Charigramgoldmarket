@@ -80,7 +80,7 @@
 
     <script>
         async function fetchGoldPrice() {
-            const apiKey = "goldapi-55e75b19m8746epl-io";  // এখানে আপনার API Key বসান
+            const apiKey = "goldapi-55e75b19m8746epl-io";
             const url = "https://www.goldapi.io/api/XAU/USD";
 
             try {
@@ -92,12 +92,10 @@
                 });
                 const data = await response.json();
 
-                // Change calculation for all units
                 const changePerGram = (data.price_gram_24k / data.prev_close_price) * data.ch;
                 const changePerVori = changePerGram * 11.66;
                 const changePerKilo = changePerGram * 1000;
 
-                // Function to format change value with color
                 function formatChange(change) {
                     const sign = change > 0 ? "+" : "";
                     return `<span class="${change > 0 ? 'positive' : 'negative'}">${sign}${change.toFixed(2)}</span>`;
@@ -135,7 +133,7 @@
         }
 
         fetchGoldPrice();
-        setInterval(fetchGoldPrice, 7200000);  // প্রতি 60 সেকেন্ড পর আপডেট হবে
+        setInterval(fetchGoldPrice, 7200000); // 2 ঘন্টা পর আপডেট হবে
     </script>
 </body>
 </html>
