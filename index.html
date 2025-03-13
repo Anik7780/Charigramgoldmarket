@@ -37,9 +37,18 @@
     <!-- Second HTML File -->
     <iframe src="page2.html" title="Page 2 Content" onload="resizeIframe(this)"></iframe>
 
+    <hr>
+
+    <!-- Third HTML File -->
+    <iframe src="page3.html" title="Page 3 Content" onload="resizeIframe(this)"></iframe>
+
     <script>
         function resizeIframe(iframe) {
-            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            try {
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            } catch (e) {
+                console.error("Iframe height adjustment failed due to cross-origin restrictions.", e);
+            }
         }
     </script>
 
