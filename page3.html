@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gold & Silver Price Table</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
             background-color: #f8f9fa;
-            margin: 30px;
+            margin: 20px;
         }
         h1 {
             color: #333;
+            font-size: 1.8em;
         }
         .table-container {
-            width: 90%;
+            width: 95%;
             max-width: 600px;
             margin: auto;
             background: #fff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            overflow-x: auto;
         }
         table {
             width: 100%;
@@ -30,14 +32,14 @@
             margin-top: 10px;
         }
         th, td {
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #000;
             text-align: center;
+            font-size: 0.9em;
         }
         th {
             background-color: #0C233D;
             color: orange;
-            font-size: 18px;
         }
         td {
             background-color: #F5E6A3;
@@ -47,13 +49,22 @@
         }
         #timestamp {
             margin-top: 10px;
-            font-size: 14px;
+            font-size: 0.8em;
             color: #666;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
 <body>
-
     <h1>Gold Price Table</h1>
     <div class="table-container">
         <table>
@@ -125,6 +136,5 @@
         </table>
         <p id="timestamp">Last Updated: March 13, 2025 7:20 PM</p>
     </div>
-
 </body>
 </html>
