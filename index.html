@@ -3,25 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CharigramGoldMarket</title>
+    <title>Charigram Gold Market</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
+            background-color: #f8f9fa;
         }
         h1 {
             color: #333;
+            font-size: 1.8em;
         }
         iframe {
             width: 100%;
             min-height: 400px;
-            height: 80vh; /* স্ক্রিন সাইজ অনুযায়ী অ্যাডজাস্ট হবে */
+            height: 80vh;
             border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff;
         }
         hr {
             margin: 20px 0;
             border: 1px solid #ddd;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            iframe {
+                min-height: 300px;
+                height: 70vh;
+            }
         }
     </style>
 </head>
