@@ -15,54 +15,72 @@
             color: #333;
             font-size: 1.8em;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            padding: 10px 15px;
-            background: #007bff;
-            color: white;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            background: #0056b3;
-        }
-        #content {
-            background: #fff;
-            padding: 20px;
+        iframe {
+            width: 100%;
+            min-height: 400px;
+            height: 80vh;
+            border: none;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            min-height: 400px;
+            background: #fff;
+        }
+        hr {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        .nav-buttons {
+            margin-bottom: 20px;
+        }
+        .nav-buttons button {
+            background-color: blue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+        }
+        .nav-buttons button:hover {
+            background-color: darkblue;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            iframe {
+                min-height: 300px;
+                height: 70vh;
+            }
         }
     </style>
 </head>
 <body>
 
     <h1>Charigram Gold Market</h1>
-
-    <nav>
-        <a href="#" onclick="loadPage('page1.html')">Home</a>
-        <a href="#" onclick="loadPage('page2.html')">Gold Prices</a>
-        <a href="#" onclick="loadPage('page3.html')">Contact</a>
-    </nav>
-
-    <div id="content">
-        <p>Welcome to Charigram Gold Market! Click on the menu to explore.</p>
+    
+    <div class="nav-buttons">
+        <button onclick="showHome()">Home</button>
+        <button onclick="showCalculator()">Calculator</button>
+        <button onclick="showContact()">Contact</button>
     </div>
 
+    <iframe id="contentFrame" src="page1.html" title="Page Content"></iframe>
+
     <script>
-        function loadPage(page) {
-            fetch(page)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading page:', error));
+        function showHome() {
+            document.getElementById('contentFrame').src = 'page1.html';
+            setTimeout(() => {
+                document.getElementById('contentFrame').src = 'page2.html';
+            }, 2000); // Page 2 will load after 2 seconds
+        }
+
+        function showCalculator() {
+            document.getElementById('contentFrame').src = 'calculator.html';
+        }
+
+        function showContact() {
+            alert("Contact: 01973249778");
         }
     </script>
 
