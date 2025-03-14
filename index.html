@@ -65,18 +65,18 @@
         <button onclick="showContact()">Contact</button>
     </div>
 
-    <iframe id="contentFrame" src="page1.html" title="Page Content"></iframe>
+    <iframe id="contentFrame" src="page2.html" title="Page Content"></iframe>
 
     <script>
         function showHome() {
-            document.getElementById('contentFrame').src = 'page1.html';
+            document.getElementById('contentFrame').src = 'page2.html';
             setTimeout(() => {
-                document.getElementById('contentFrame').src = 'page2.html';
-            }, 2000); // Page 2 will load after 2 seconds
+                document.getElementById('contentFrame').src = 'page3.html';
+            }, 2000); // Page 3 will load after 2 seconds
         }
 
         function showCalculator() {
-            document.getElementById('contentFrame').src = 'calculator.html';
+            document.getElementById('contentFrame').src = 'page1.html';
         }
 
         function showContact() {
