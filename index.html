@@ -15,28 +15,29 @@
             color: #333;
             font-size: 1.8em;
         }
-        iframe {
-            width: 100%;
-            min-height: 400px;
-            height: 80vh;
-            border: none;
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background: #0056b3;
+        }
+        #content {
+            background: #fff;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: #fff;
-        }
-        hr {
-            margin: 20px 0;
-            border: 1px solid #ddd;
-        }
-        
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
-            }
-            iframe {
-                min-height: 300px;
-                height: 70vh;
-            }
+            min-height: 400px;
         }
     </style>
 </head>
@@ -44,26 +45,24 @@
 
     <h1>Charigram Gold Market</h1>
 
-    <!-- First HTML File -->
-    <iframe src="page1.html" title="Page 1 Content" onload="resizeIframe(this)"></iframe>
+    <nav>
+        <a href="#" onclick="loadPage('page1.html')">Home</a>
+        <a href="#" onclick="loadPage('page2.html')">Gold Prices</a>
+        <a href="#" onclick="loadPage('page3.html')">Contact</a>
+    </nav>
 
-    <hr>
-
-    <!-- Second HTML File -->
-    <iframe src="page2.html" title="Page 2 Content" onload="resizeIframe(this)"></iframe>
-
-    <hr>
-
-    <!-- Third HTML File -->
-    <iframe src="page3.html" title="Page 3 Content" onload="resizeIframe(this)"></iframe>
+    <div id="content">
+        <p>Welcome to Charigram Gold Market! Click on the menu to explore.</p>
+    </div>
 
     <script>
-        function resizeIframe(iframe) {
-            try {
-                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-            } catch (e) {
-                console.error("Iframe height adjustment failed due to cross-origin restrictions.", e);
-            }
+        function loadPage(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading page:', error));
         }
     </script>
 
