@@ -6,18 +6,18 @@
     <title>স্বর্ণের ক্যালকুলেটর</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; background: #f3c623; text-align: center; padding: 20px; }
+        body { font-family: 'Arial', sans-serif; background: #f3c623; text-align: center; padding: 15px; }
         .calculator {
-            background: #ffffff; padding: 20px; width: 90%; max-width: 380px; margin: auto; border-radius: 10px;
+            background: #ffffff; padding: 15px; width: 90%; max-width: 320px; margin: auto; border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        h2 { font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid #f3c623; padding-bottom: 5px; }
+        h2 { font-size: 20px; margin-bottom: 10px; border-bottom: 2px solid #f3c623; padding-bottom: 5px; color: #333; }
         input, button {
-            width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;
+            width: 100%; padding: 8px; margin: 5px 0; border-radius: 6px; border: 1px solid #ddd; font-size: 14px;
         }
         button { background: #f3c623; color: white; cursor: pointer; border: none; font-weight: bold; }
         button:hover { background: #d4a317; }
-        #result, #finalResult { margin-top: 15px; font-size: 18px; font-weight: bold; }
+        #result, #finalResult { margin-top: 10px; font-size: 16px; font-weight: bold; color: #333; }
     </style>
 </head>
 <body>
@@ -65,9 +65,9 @@
             let finalPoint = remainingPoints % 10;
             let gramResult = (points / 960) * 11.66;
             
-            document.getElementById("result").innerHTML = `📏 ওজন: ${finalVori} ভরি, ${finalAna} আনা, ${finalRotti} রত্তি, ${finalPoint} পয়েন্ট | ${gramResult.toFixed(2)}g`;
+            document.getElementById("result").innerHTML = `📏 ওজন: ${finalVori} ভরি, ${finalAna} আনা, ${finalRotti} রত্তি, ${finalPoint} পয়েন্ট | ✨ ${gramResult.toFixed(2)}g`;
             let finalResult = (result1 * points) + totalWage;
-            document.getElementById("finalResult").innerText = `💰 মোট টাকা= ৳${finalResult.toFixed(2)}`;
+            document.getElementById("finalResult").innerText = `🟢 মোট টাকা= ৳${finalResult.toFixed(2)}`;
         }
 
         function clearFields() {
@@ -94,11 +94,12 @@
 
             let receiptContent = `🔶 Charigram Gold Market 🔶
 -----------------------------------
-📅 তারিখ: ${currentDate}
+📅 রসিদ তৈরির সময়: ${currentDate}
 -----------------------------------
-💰 স্বর্ণের দাম: ৳${customValue} প্রতি ভরি
-📏 ওজন: ${finalVori} ভরি, ${finalAna} আনা, ${finalRotti} রত্তি, ${finalPoint} পয়েন্ট (${gramResult.toFixed(2)}g)
-🔨 মজুরি: ৳${optionalValue} প্রতি ভরি
+💰 স্বর্ণের বর্তমান দাম: ৳${customValue} প্রতি ভরি
+পরিণত মান: ${finalVori} ভরি, ${finalAna} আনা, ${finalRotti} রত্তি, ${finalPoint} পয়েন্ট
+✨ ওজন: ${gramResult.toFixed(2)}g
+🔨 প্রতি ভরির মজুরি: ৳${optionalValue.toFixed(2)}
 💵 মোট মজুরি: ৳${totalWage.toFixed(2)}
 -----------------------------------
 ${finalResultText}
